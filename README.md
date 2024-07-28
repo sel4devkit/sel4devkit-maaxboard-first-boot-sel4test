@@ -2,7 +2,7 @@
 
 ## Purpose
 
-* Supports: seL4 Developer Kit ([manual]())
+* Supports: seL4 Developer Kit ([site](https://sel4devkit.github.io/))
 * Provides: Coordinate Build of MaaXBoard seL4 Test ([manual](./doc/MANUAL.md))
 
 ## License
