@@ -18,7 +18,9 @@ make
 
 Build program:
 ```
+make get
 make all
+
 ```
 Expected output where executed on target:
 ```
