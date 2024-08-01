@@ -29,7 +29,7 @@ OUT_PATH := out
 #===========================================================
 .PHONY: usage
 usage: 
-	@echo "usage: make <target> FORCE=TRUE"
+	@echo "usage: make <target> [FORCE=TRUE]"
 	@echo ""
 	@echo "<target> is one off:"
 	@echo "get"
