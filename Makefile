@@ -40,7 +40,9 @@ usage:
 # Target
 #===========================================================
 .PHONY: get
-get: | ${TMP_PATH}
+get: | ${TMP_PATH}/sel4test-manifest
+
+${TMP_PATH}/sel4test-manifest: | ${TMP_PATH}
 	mkdir ${TMP_PATH}/sel4test-manifest
 	cd ${TMP_PATH}/sel4test-manifest ; repo init --manifest-url "git@github.com:seL4/sel4test-manifest.git"
 	cd ${TMP_PATH}/sel4test-manifest ; repo sync
@@ -57,7 +59,7 @@ ${OUT_PATH}:
 ${OUT_PATH}/program.elf: ${TMP_PATH}/build/images/sel4test-driver-image-arm-maaxboard | ${OUT_PATH}
 	cp $< $@
 
-${TMP_PATH}/build/images/sel4test-driver-image-arm-maaxboard: ${TMP_PATH}/sel4test-manifest/init-build.sh | ${TMP_PATH}
+${TMP_PATH}/build/images/sel4test-driver-image-arm-maaxboard: | ${TMP_PATH}/sel4test-manifest/init-build.sh ${TMP_PATH}
 	python -m venv ${TMP_PATH}/pyenv
 	. ${TMP_PATH}/pyenv/bin/activate ; pip install sel4-deps
 	. ${TMP_PATH}/pyenv/bin/activate ; pip install camkes-deps
